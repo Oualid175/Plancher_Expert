@@ -1,0 +1,65 @@
+﻿@page
+@model Plancher_Expert.Pages.FormModel
+@{
+    ViewData["Title"] = "Forum";
+}
+
+<h1> Formulaire: </h1>
+
+@if(Model.A==""){
+	Model.A = "Bonjour";
+	<p>@Model.A</p>
+}
+@if(Model.hasContact){
+	<p>Bonjour @Model.name</p>
+	<p>Vous êtes joingnable par l'email @Model.email</p>
+	<p>Votre message <b>@Model.msg</b> </p>
+	<p>a été bien reçu</p>
+}
+<hr />
+<div class="container">
+	<form method="post">
+        <label for="name" class="form-label"> Name : </label>
+        <input id="name" class="form-input" name="name" type="text" /><br />
+
+        <label for="email" class="form-label"> Email : </label>
+        <input id="email" class="form-input" name="email" type="email" /><br />
+
+        <label for="msg" class="form-label"> Message : </label>
+		<textarea name="msg" class="form-textarea" id="msg"></textarea> <br />
+
+        <input type="submit" class="form-submit" name="sendForm" />
+	</form>
+</div>
+
+<center>
+	<img src="~/media/EMSI.png" alt="EMSI"/>
+</center>
+
+<style>
+    .container {
+        margin-bottom: 10px;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-input {
+        width: 300px;
+        padding: 5px;
+    }
+
+    .form-submit {
+        margin-top: 10px;
+    }
+
+    .form-textarea {
+        width: 300px;
+        height: 100px;
+        padding: 5px;
+        resize: none;
+    }
+</style>
